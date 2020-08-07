@@ -57,7 +57,7 @@ const technologyToggle = document.getElementById('technology');
 const entertainmentToggle = document.getElementById('entertainment');
 const gamingToggle = document.getElementById('gaming');
 const cleaningToggle = document.getElementById('cleaning');
-const resturauntToggle = document.getElementById('resturaunt');
+const restaurantToggle = document.getElementById('restaurant');
 const transportationToggle = document.getElementById('transportation');
 const shoppingToggle = document.getElementById('shopping');
 const animalToggle = document.getElementById('animal');
@@ -68,7 +68,7 @@ let isTechnology = true;
 let isEntertainment = true;
 let isGaming = true;
 let isCleaning = true;
-let isResturaunt = true;
+let isRestaurant = true;
 let isTransportation = true;
 let isShopping = true;
 let isAnimal = true;
@@ -167,16 +167,16 @@ cleaningToggle.addEventListener('click', () => {
         createBusiness(company);
     })
 })
-// Resturaunt Toggle Button
-resturauntToggle.addEventListener('click', () => {
-    isResturaunt = !isResturaunt
+// Restaurant Toggle Button
+restaurantToggle.addEventListener('click', () => {
+    isRestaurant = !isRestaurant
     businessDiv.innerText = '';
     business.filter(company => {
-        if (company.types[0] == 'Resturaunt') {
+        if (company.types[0] == 'Restaurant') {
             return company.name;
-        } else if (company.types[1] == 'Resturaunt') {
+        } else if (company.types[1] == 'Restaurant') {
             return company.name;
-        } else if (company.types[2] == 'Resturaunt') {
+        } else if (company.types[2] == 'Restaurant') {
             return company.name;
         }
     })
@@ -284,28 +284,28 @@ newTest.addEventListener('click', () => {
     const index = Math.floor(Math.random() * testimonials.length);
 
     const q = document.createElement('q');
-    
+
     q.innerText = testimonials[index].testimonial;
-    
+
     document.getElementById('testimonial').append(q);
-    
+
     //Pull random user images and names from the API
     const userURL = 'https://randomuser.me/api/';
     const span = document.getElementById('rndUser');
     let bigUsers;
-    
+
     fetch(userURL)
         .then(resp => resp.json())
         .then(data => {
             bigUsers = data.results;
-    
+
             bigUsers.map(user => {
                 let h1 = document.createElement('h1'),
                     img = document.createElement('img');
-    
+
                 img.src = user.picture.large;
                 h1.innerText = `${user.name.first} ${user.name.last}`;
-    
+
                 span.appendChild(img);
                 span.appendChild(h1);
             })
